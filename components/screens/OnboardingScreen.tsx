@@ -4,7 +4,7 @@ import { Screen, ScreenProps } from '../../types';
 const OnboardingScreen: React.FC<ScreenProps> = ({ navigate }) => {
     
     const handleContinue = () => {
-        navigate(Screen.PracticeCenter);
+        navigate(Screen.Dashboard);
     };
 
     return (

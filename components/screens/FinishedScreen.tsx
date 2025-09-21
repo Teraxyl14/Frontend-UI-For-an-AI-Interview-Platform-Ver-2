@@ -35,12 +35,12 @@ const FinishedScreen: React.FC<ScreenProps & { companyName?: string, drillType?:
     return (
         <div className="w-full h-full flex flex-col items-center justify-center p-4">
             <div className="glass-card shadow-glass-glow text-center w-full max-w-lg p-8 md:p-12 animate-fade-in">
-                <svg className="mx-auto text-green-500 w-16 h-16 mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                <svg className="mx-auto text-amber-500 w-16 h-16 mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
                 <h1 className="text-2xl font-bold mb-2">{title}</h1>
                 <p className="text-slate-700 dark:text-slate-300">
                     {message}
                 </p>
-                <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-purple-400 mx-auto mt-8"></div>
+                <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-amber-400 mx-auto mt-8"></div>
             </div>
         </div>
     );

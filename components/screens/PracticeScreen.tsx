@@ -23,9 +23,9 @@ const PracticeScreen: React.FC<ScreenProps> = ({ navigate, interviewMode }) => {
                         <h3 className="font-semibold mb-2">Microphone</h3>
                          <div className="aspect-video bg-black rounded flex items-center justify-center text-slate-400 overflow-hidden">
                              <div className="flex items-center justify-center gap-1 h-full">
-                                <div className="w-2 h-4 bg-purple-400 rounded-full animate-bounce [animation-delay:-0.4s]"></div>
-                                <div className="w-2 h-10 bg-purple-400 rounded-full animate-bounce [animation-delay:-0.2s]"></div>
-                                <div className="w-2 h-6 bg-purple-400 rounded-full animate-bounce"></div>
+                                <div className="w-2 h-4 bg-amber-500 rounded-full animate-bounce [animation-delay:-0.4s]"></div>
+                                <div className="w-2 h-10 bg-amber-500 rounded-full animate-bounce [animation-delay:-0.2s]"></div>
+                                <div className="w-2 h-6 bg-amber-500 rounded-full animate-bounce"></div>
                              </div>
                         </div>
                     </div>

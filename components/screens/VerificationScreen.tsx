@@ -14,7 +14,7 @@ const VerificationScreen: React.FC<ScreenProps> = ({ navigate }) => {
                         <h3 className="text-lg font-bold mb-4 text-center text-slate-700 dark:text-slate-400">Extracted Skills</h3>
                         <div className="flex flex-wrap justify-center gap-3">
                             {EXTRACTED_SKILLS.map(skill => (
-                                <span key={skill} className="bg-purple-600/10 text-purple-600 dark:bg-purple-500/20 dark:text-purple-300 text-sm font-medium px-3 py-1.5 rounded-full">
+                                <span key={skill} className="bg-slate-600/10 text-slate-600 dark:bg-slate-500/20 dark:text-slate-300 text-sm font-medium px-3 py-1.5 rounded-full">
                                     {skill}
                                 </span>
                             ))}
@@ -31,7 +31,7 @@ const VerificationScreen: React.FC<ScreenProps> = ({ navigate }) => {
                     </button>
                     <button 
                         onClick={() => navigate(Screen.Wizard)}
-                        className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full text-lg flex-1"
+                        className="btn-primary py-3 text-lg flex-1"
                     >
                         Confirm & Continue
                     </button>

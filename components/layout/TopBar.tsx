@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Screen, ScreenProps } from '../../types';
 
-interface TopBarProps extends Pick<ScreenProps, 'currentScreen' | 'theme'> {
+interface TopBarProps extends Pick<ScreenProps, 'currentScreen' | 'theme' | 'goBack' | 'navigationHistory'> {
     setIsSidebarOpen: (isOpen: boolean) => void;
 }
 
@@ -17,9 +17,10 @@ const getScreenTitle = (screen: Screen) => {
     }
 }
 
-const TopBar: React.FC<TopBarProps> = ({ setIsSidebarOpen, currentScreen, theme }) => {
+const TopBar: React.FC<TopBarProps> = ({ setIsSidebarOpen, currentScreen, theme, goBack, navigationHistory }) => {
     const title = getScreenTitle(currentScreen!);
     const buttonHoverClass = theme === 'dark' ? 'hover:bg-slate-700/50' : 'hover:bg-slate-900/5';
+    const canGoBack = navigationHistory && navigationHistory.length > 1;
 
     const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
     const notificationsRef = useRef<HTMLDivElement>(null);
@@ -42,11 +43,20 @@ const TopBar: React.FC<TopBarProps> = ({ setIsSidebarOpen, currentScreen, theme 
 
     return (
         <header className={`relative z-30 layout-bg flex items-center justify-between p-4 md:p-6 border-b`}>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
                  <button onClick={() => setIsSidebarOpen(true)} className={`lg:hidden p-2 rounded-full ${buttonHoverClass}`}>
                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
                 </button>
-                <h1 className="text-xl font-bold">{title}</h1>
+                {canGoBack && (
+                    <button
+                        onClick={() => goBack?.()}
+                        title="Go back"
+                        className={`p-2 rounded-full ${buttonHoverClass}`}
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+                    </button>
+                )}
+                <h1 className="text-xl font-bold ml-2">{title}</h1>
             </div>
             
             <div className="flex items-center gap-4">
@@ -60,12 +70,12 @@ const TopBar: React.FC<TopBarProps> = ({ setIsSidebarOpen, currentScreen, theme 
                         <div className="absolute top-full right-0 mt-3 w-80 popover-card p-4 animate-fade-in origin-top-right z-50">
                             <div className="flex justify-between items-center mb-3">
                                 <h3 className="font-bold">Notifications</h3>
-                                <button className="text-xs font-semibold text-purple-600 dark:text-purple-400 hover:underline">Mark all as read</button>
+                                <button className="text-xs font-semibold text-amber-600 dark:text-amber-400 hover:underline">Mark all as read</button>
                             </div>
                             <ul className="space-y-3 max-h-80 overflow-y-auto">
                                 {notifications.map(n => (
-                                    <li key={n.id} className="flex gap-3 items-start">
-                                        {!n.read && <div className="w-2 h-2 rounded-full bg-purple-500 mt-1.5 flex-shrink-0" />}
+                                    <li key={n.id} className="flex gap-3 items-center">
+                                        {!n.read && <div className="w-2 h-2 rounded-full bg-amber-500 flex-shrink-0" />}
                                         <div className={n.read ? 'pl-5' : ''}>
                                             <p className={`text-sm ${n.read ? 'text-slate-600 dark:text-slate-400' : 'font-semibold'}`}>{n.text}</p>
                                             <p className="text-xs text-slate-500 dark:text-slate-500">{n.time}</p>
@@ -76,7 +86,7 @@ const TopBar: React.FC<TopBarProps> = ({ setIsSidebarOpen, currentScreen, theme 
                         </div>
                     )}
                 </div>
-                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500">
+                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-yellow-400">
                     <img src="https://picsum.photos/seed/alex/100" alt="User avatar" className="w-full h-full object-cover rounded-full" />
                 </div>
             </div>

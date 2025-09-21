@@ -43,7 +43,7 @@ const ProfileScreen: React.FC<ScreenProps> = ({ navigate }) => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium mb-1">Full Name</label>
-                                <input type="text" id="name" defaultValue="Alex Doe" className="block w-full rounded-md border-0 bg-slate-500/10 py-2 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-purple-500 transition" />
+                                <input type="text" id="name" defaultValue="Alex Doe" className="block w-full rounded-md border-0 bg-slate-500/10 py-2 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-amber-500 transition" />
                             </div>
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium mb-1">Email Address</label>
@@ -63,15 +63,15 @@ const ProfileScreen: React.FC<ScreenProps> = ({ navigate }) => {
                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div>
                                 <label htmlFor="current_password" className="block text-sm font-medium mb-1">Current Password</label>
-                                <input type="password" id="current_password" className="block w-full rounded-md border-0 bg-slate-500/10 py-2 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-purple-500 transition" />
+                                <input type="password" id="current_password" className="block w-full rounded-md border-0 bg-slate-500/10 py-2 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-amber-500 transition" />
                             </div>
                             <div>
                                 <label htmlFor="new_password" className="block text-sm font-medium mb-1">New Password</label>
-                                <input type="password" id="new_password" className="block w-full rounded-md border-0 bg-slate-500/10 py-2 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-purple-500 transition" />
+                                <input type="password" id="new_password" className="block w-full rounded-md border-0 bg-slate-500/10 py-2 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-amber-500 transition" />
                             </div>
                             <div>
                                 <label htmlFor="confirm_password" className="block text-sm font-medium mb-1">Confirm New Password</label>
-                                <input type="password" id="confirm_password" className="block w-full rounded-md border-0 bg-slate-500/10 py-2 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-purple-500 transition" />
+                                <input type="password" id="confirm_password" className="block w-full rounded-md border-0 bg-slate-500/10 py-2 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-amber-500 transition" />
                             </div>
                         </div>
                         <div className="flex justify-end pt-2">
@@ -85,12 +85,12 @@ const ProfileScreen: React.FC<ScreenProps> = ({ navigate }) => {
                     <h2 className="text-xl font-bold mb-4">Your CV</h2>
                     <label
                         htmlFor="file-upload"
-                        className={`mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10 transition-colors ${isDragging ? 'border-purple-400 bg-purple-500/10' : 'border-slate-500/50'}`}
+                        className={`mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10 transition-colors ${isDragging ? 'border-amber-400 bg-amber-500/10' : 'border-slate-500/50'}`}
                         onDragEnter={handleDragEnter} onDragOver={handleDragEnter} onDragLeave={handleDragLeave} onDrop={handleDrop}
                     >
                         <div className="text-center">
                             {cvFile ? (
-                                <div className="text-purple-600 dark:text-purple-300 font-semibold">
+                                <div className="text-amber-600 dark:text-amber-300 font-semibold">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-12 w-12" viewBox="0 0 24 24" fill="currentColor"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
                                     <p className="mt-4">{cvFile.name}</p>
                                     <button 
@@ -106,7 +106,7 @@ const ProfileScreen: React.FC<ScreenProps> = ({ navigate }) => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
                                     </svg>
                                     <div className="mt-4 flex text-sm leading-6 text-slate-700 dark:text-slate-400">
-                                        <span className="relative cursor-pointer rounded-md font-semibold text-purple-600 dark:text-purple-400 hover:text-purple-500 dark:hover:text-purple-300">
+                                        <span className="relative cursor-pointer rounded-md font-semibold text-amber-600 dark:text-amber-400 hover:text-amber-500 dark:hover:text-amber-300">
                                             <span>Upload a new CV</span>
                                             <input id="file-upload" name="file-upload" type="file" className="sr-only" onChange={(e) => handleFileChange(e.target.files)} accept=".pdf" />
                                         </span>

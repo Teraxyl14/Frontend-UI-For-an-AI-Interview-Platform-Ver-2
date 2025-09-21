@@ -43,7 +43,7 @@ const PracticeCenterScreen: React.FC<ScreenProps> = ({ navigate, theme, setInter
                                 </div>
                                 <div className="space-y-3 mt-4 text-sm">
                                     <div className="p-3 bg-slate-900/5 dark:bg-slate-500/10 rounded-lg">
-                                        <p className="font-bold text-green-500 dark:text-green-400">Top Skill: <span className="text-slate-800 dark:text-slate-200">Technical Depth</span></p>
+                                        <p className="font-bold text-amber-500 dark:text-amber-400">Top Skill: <span className="text-slate-800 dark:text-slate-200">Technical Depth</span></p>
                                     </div>
                                     <div className="p-3 bg-slate-900/5 dark:bg-slate-500/10 rounded-lg">
                                         <p className="font-bold text-yellow-500 dark:text-yellow-400">Biggest Opportunity: <span className="text-slate-800 dark:text-slate-200">STAR Method</span></p>
@@ -76,7 +76,7 @@ const PracticeCenterScreen: React.FC<ScreenProps> = ({ navigate, theme, setInter
                                                 <p className="font-semibold">{item.role}</p>
                                                 <p className="text-sm text-slate-700 dark:text-slate-400">{item.date}</p>
                                             </div>
-                                            <div className="font-bold text-lg text-purple-600 dark:text-purple-300">{item.score}%</div>
+                                            <div className="font-bold text-lg text-amber-600 dark:text-amber-400">{item.score}%</div>
                                         </li>
                                     ))}
                                 </ul>
@@ -88,9 +88,9 @@ const PracticeCenterScreen: React.FC<ScreenProps> = ({ navigate, theme, setInter
                                 <div className="space-y-4">
                                     {KEY_IMPROVEMENT_AREAS.map(area => (
                                         <div key={area.skill} className="bg-slate-900/5 dark:bg-slate-500/10 p-4 rounded-lg">
-                                            <h3 className="font-semibold text-purple-600 dark:text-purple-300">{area.skill}</h3>
+                                            <h3 className="font-semibold text-amber-600 dark:text-amber-400">{area.skill}</h3>
                                             <p className="text-sm text-slate-700 dark:text-slate-400">{area.advice}</p>
-                                            <button onClick={() => handleStartDrill(area.skill)} className="text-xs font-bold text-purple-600 dark:text-purple-400 hover:text-purple-500 dark:hover:text-purple-300 mt-2">Practice this skill &rarr;</button>
+                                            <button onClick={() => handleStartDrill(area.skill)} className="text-xs font-bold text-amber-600 dark:text-amber-400 hover:text-amber-500 dark:hover:text-amber-300 mt-2">Practice this skill &rarr;</button>
                                         </div>
                                     ))}
                                 </div>

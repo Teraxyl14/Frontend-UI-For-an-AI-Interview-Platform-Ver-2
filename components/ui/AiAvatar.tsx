@@ -17,8 +17,8 @@ const AiAvatar: React.FC<AiAvatarProps> = ({ state }) => {
             <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 w-full h-full">
                 <defs>
                     <radialGradient id="avatarGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                        <stop offset="0%" style={{ stopColor: 'hsl(var(--brand-purple))', stopOpacity: 0.6 }} />
-                        <stop offset="100%" style={{ stopColor: 'hsl(var(--brand-cyan))', stopOpacity: 0.2 }} />
+                        <stop offset="0%" style={{ stopColor: 'hsl(var(--brand-primary))', stopOpacity: 0.6 }} />
+                        <stop offset="100%" style={{ stopColor: 'hsl(var(--brand-secondary))', stopOpacity: 0.2 }} />
                     </radialGradient>
                 </defs>
                 <circle cx="100" cy="100" r="80" fill="url(#avatarGradient)" />
@@ -26,8 +26,8 @@ const AiAvatar: React.FC<AiAvatarProps> = ({ state }) => {
                 {/* Listening indicator rings */}
                 {isListening && (
                     <>
-                        <circle cx="100" cy="100" r="85" fill="none" stroke="hsl(var(--brand-purple))" strokeWidth="1" className="avatar-listening-ring" style={{ animationDelay: '0s' }} />
-                        <circle cx="100" cy="100" r="85" fill="none" stroke="hsl(var(--brand-purple))" strokeWidth="1" className="avatar-listening-ring" style={{ animationDelay: '0.5s' }} />
+                        <circle cx="100" cy="100" r="85" fill="none" stroke="hsl(var(--brand-primary))" strokeWidth="1" className="avatar-listening-ring" style={{ animationDelay: '0s' }} />
+                        <circle cx="100" cy="100" r="85" fill="none" stroke="hsl(var(--brand-primary))" strokeWidth="1" className="avatar-listening-ring" style={{ animationDelay: '0.5s' }} />
                     </>
                 )}
                 
@@ -35,7 +35,7 @@ const AiAvatar: React.FC<AiAvatarProps> = ({ state }) => {
                 <circle
                     cx="100" cy="100" r="90"
                     fill="none"
-                    stroke="hsl(var(--brand-cyan))"
+                    stroke="hsl(var(--brand-secondary))"
                     strokeWidth="2"
                     strokeLinecap="round"
                     className={isThinking ? 'avatar-thinking-scanner' : ''}
@@ -50,7 +50,7 @@ const AiAvatar: React.FC<AiAvatarProps> = ({ state }) => {
             <div
                 className={`absolute inset-0 flex items-center justify-center transition-transform duration-500 ${isBreathing ? 'avatar-breathing' : ''} ${isSpeaking ? 'avatar-speaking' : ''}`}
             >
-                <div className="w-full h-full rounded-full opacity-30 filter blur-3xl" style={{ backgroundColor: 'hsl(var(--brand-purple))' }}></div>
+                <div className="w-full h-full rounded-full opacity-30 filter blur-3xl" style={{ backgroundColor: 'hsl(var(--brand-primary))' }}></div>
             </div>
         </div>
     );

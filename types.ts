@@ -29,6 +29,8 @@ export enum Screen {
 
 export interface ScreenProps {
     navigate: (screen: Screen, params?: any) => void;
+    goBack?: () => void;
+    navigationHistory?: Screen[];
     theme?: Theme;
     interviewMode?: InterviewMode;
     interviewData?: InterviewHistoryItem;

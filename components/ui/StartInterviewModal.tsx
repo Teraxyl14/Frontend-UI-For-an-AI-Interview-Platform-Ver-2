@@ -28,9 +28,9 @@ const StartInterviewModal: React.FC<StartInterviewModalProps> = ({ navigate, onC
                     {/* Quick Practice */}
                     <div 
                         onClick={() => handleNavigation(Screen.Wizard)} 
-                        className="glass-card p-6 cursor-pointer border border-transparent hover:border-purple-500 transition-all duration-300 group"
+                        className="glass-card p-6 cursor-pointer border border-transparent hover:border-amber-500 transition-all duration-300 group"
                     >
-                        <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <div className="w-16 h-16 bg-gradient-to-br from-slate-500 to-slate-400 rounded-xl flex items-center justify-center mx-auto mb-4">
                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
                         </div>
                         <h3 className="text-lg font-bold mb-2">Quick Practice</h3>
@@ -40,9 +40,9 @@ const StartInterviewModal: React.FC<StartInterviewModalProps> = ({ navigate, onC
                     {/* Custom Practice */}
                     <div 
                         onClick={() => handleNavigation(Screen.CvSetup)} 
-                        className="glass-card p-6 cursor-pointer border border-transparent hover:border-purple-500 transition-all duration-300 group"
+                        className="glass-card p-6 cursor-pointer border border-transparent hover:border-amber-500 transition-all duration-300 group"
                     >
-                        <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-yellow-400 rounded-xl flex items-center justify-center mx-auto mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
                         </div>
                         <h3 className="text-lg font-bold mb-2">Custom Practice</h3>

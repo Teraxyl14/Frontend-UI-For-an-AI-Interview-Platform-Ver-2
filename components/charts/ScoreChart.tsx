@@ -23,7 +23,7 @@ const ScoreChart: React.FC<ScoreChartProps> = ({ theme, score, title = "Overall 
         }
 
         const style = getComputedStyle(document.documentElement);
-        const purple = `hsl(${style.getPropertyValue('--brand-purple-raw')})`;
+        const primaryColor = `hsl(${style.getPropertyValue('--brand-primary-raw')})`;
         const trackColor = theme === 'dark' ? 'hsla(0,0%,100%,0.1)' : 'hsla(0,0%,0%,0.05)';
 
         chartRef.current = new window.Chart(canvasRef.current, {
@@ -31,7 +31,7 @@ const ScoreChart: React.FC<ScoreChartProps> = ({ theme, score, title = "Overall 
             data: {
                 datasets: [{
                     data: [score, 100 - score],
-                    backgroundColor: [purple, trackColor],
+                    backgroundColor: [primaryColor, trackColor],
                     borderWidth: 0,
                     cutout: '80%',
                     circumference: 270,
@@ -59,7 +59,6 @@ const ScoreChart: React.FC<ScoreChartProps> = ({ theme, score, title = "Overall 
                     let fontSize = (height / 5).toFixed(2);
                     ctx.font = `bold ${fontSize}px Inter`;
                     ctx.textBaseline = 'middle';
-                    // FIX: Get color directly from the chart's dataset to avoid scope issues.
                     ctx.fillStyle = chart.data.datasets[0].backgroundColor[0] as string;
                     let text = `${chartScore}%`;
                     let textX = Math.round((width - ctx.measureText(text).width) / 2);

@@ -10,7 +10,6 @@ const WizardScreen: React.FC<ScreenProps> = ({ navigate }) => {
 
     const handleNext = () => {
         if (currentStep.isFinal) {
-            // FIX: Corrected navigation to SystemCheck screen as 'Practice' screen does not exist.
             navigate(Screen.SystemCheck);
         } else {
             setCurrentStepIndex(prev => prev + 1);
@@ -19,7 +18,6 @@ const WizardScreen: React.FC<ScreenProps> = ({ navigate }) => {
 
     useEffect(() => {
         if (currentStep.id === 'persona' && contentRef.current) {
-            // FIX: Use querySelectorAll<HTMLElement> to correctly type the selected elements, resolving errors on `dataset` access.
             const personaOptions = contentRef.current.querySelectorAll<HTMLElement>('.persona-option');
             const descriptions = contentRef.current.querySelectorAll<HTMLElement>('.persona-description');
 
@@ -31,11 +29,11 @@ const WizardScreen: React.FC<ScreenProps> = ({ navigate }) => {
                     const img = opt.querySelector('img');
                     if (opt.dataset.persona === selectedPersona) {
                         opt.classList.remove('opacity-60');
-                        img?.classList.add('border-purple-500');
+                        img?.classList.add('border-amber-500');
                         img?.classList.remove('border-transparent');
                     } else {
                         opt.classList.add('opacity-60');
-                        img?.classList.remove('border-purple-500');
+                        img?.classList.remove('border-amber-500');
                         img?.classList.add('border-transparent');
                     }
                 });
@@ -69,22 +67,21 @@ const WizardScreen: React.FC<ScreenProps> = ({ navigate }) => {
                 <div 
                     ref={contentRef}
                     className="prose prose-slate dark:prose-invert mx-auto mb-8"
-                    dangerouslySetInnerHTML={{ __html: currentStep.content }}
+                    dangerouslySetInnerHTML={{ __html: currentStep.content.replace(/border-purple-500/g, 'border-amber-500') }}
                 />
-                 {/* Progress Dots */}
                  <div className="flex justify-center gap-2 mb-8">
                     {WIZARD_STEPS.map((_, index) => (
                         <div
                             key={index}
                             className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                                index <= currentStepIndex ? 'bg-purple-500' : 'bg-slate-500/40'
+                                index <= currentStepIndex ? 'bg-amber-500' : 'bg-slate-500/40'
                             }`}
                         />
                     ))}
                 </div>
                 <button
                     onClick={handleNext}
-                    className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 rounded-full text-lg w-full"
+                    className="btn-primary text-lg w-full"
                 >
                     {currentStep.buttonText}
                 </button>

@@ -18,9 +18,9 @@ const WaitingRoomScreen: React.FC<ScreenProps> = ({ navigate }) => {
                     You are in the waiting room. Your AI interviewer will join shortly.
                 </p>
                 <div className="flex justify-center items-center space-x-2 mt-4">
-                    <div className="w-4 h-4 rounded-full bg-purple-400 animate-bounce [animation-delay:-0.3s]"></div>
-                    <div className="w-4 h-4 rounded-full bg-purple-400 animate-bounce [animation-delay:-0.15s]"></div>
-                    <div className="w-4 h-4 rounded-full bg-purple-400 animate-bounce"></div>
+                    <div className="w-4 h-4 rounded-full bg-amber-400 animate-bounce [animation-delay:-0.3s]"></div>
+                    <div className="w-4 h-4 rounded-full bg-amber-400 animate-bounce [animation-delay:-0.15s]"></div>
+                    <div className="w-4 h-4 rounded-full bg-amber-400 animate-bounce"></div>
                 </div>
             </div>
         </div>

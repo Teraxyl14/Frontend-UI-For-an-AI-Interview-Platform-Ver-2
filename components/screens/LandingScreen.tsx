@@ -146,9 +146,12 @@ const LandingScreen: React.FC<ScreenProps> = ({ navigate }) => {
     return (
         <div className="w-full min-h-screen overflow-x-hidden">
             {/* Hero Section */}
-            <section className="min-h-screen flex flex-col items-center justify-center p-4 pt-32 sm:pt-24 md:pt-4 overflow-hidden relative">
+            <section className="min-h-screen flex flex-col items-center justify-center p-4 overflow-hidden relative">
                 <div className="relative w-full flex flex-col items-center text-center">
                     <HeroBackground />
+                    <div className="relative mx-auto mb-8 w-72 h-72 md:w-96 md:h-96 animate-hero-avatar-float pointer-events-none" style={{ animationDelay: '500ms' }}>
+                        <AiAvatar state="idle" />
+                    </div>
                     <div className="relative z-10 flex flex-col items-center">
                         <h1 className="text-5xl md:text-7xl font-extrabold text-gradient mb-2 animate-fade-in" style={{ animationDelay: '300ms' }}>
                             AI Copilot
@@ -162,7 +165,7 @@ const LandingScreen: React.FC<ScreenProps> = ({ navigate }) => {
                         
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-10 animate-fade-in text-left max-w-5xl" style={{ animationDelay: '1200ms' }}>
                             <div className="flex gap-3 items-start">
-                                <div className="flex-shrink-0 w-8 h-8 bg-purple-500/10 rounded-lg flex items-center justify-center mt-1 text-purple-600 dark:text-purple-300">
+                                <div className="flex-shrink-0 w-8 h-8 bg-amber-600/10 rounded-lg flex items-center justify-center text-amber-600 dark:text-amber-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
                                 </div>
                                 <div>
@@ -171,7 +174,7 @@ const LandingScreen: React.FC<ScreenProps> = ({ navigate }) => {
                                 </div>
                             </div>
                             <div className="flex gap-3 items-start">
-                                <div className="flex-shrink-0 w-8 h-8 bg-purple-500/10 rounded-lg flex items-center justify-center mt-1 text-purple-600 dark:text-purple-300">
+                                <div className="flex-shrink-0 w-8 h-8 bg-amber-600/10 rounded-lg flex items-center justify-center text-amber-600 dark:text-amber-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12c0 1.821.487 3.53 1.338 5L2.5 21.5l4.5-.838A9.955 9.955 0 0 0 12 22z" /><path d="m7.5 12.5 2 2 4-4" /></svg>
                                 </div>
                                 <div>
@@ -180,7 +183,7 @@ const LandingScreen: React.FC<ScreenProps> = ({ navigate }) => {
                                 </div>
                             </div>
                              <div className="flex gap-3 items-start">
-                                <div className="flex-shrink-0 w-8 h-8 bg-purple-500/10 rounded-lg flex items-center justify-center mt-1 text-purple-600 dark:text-purple-300">
+                                <div className="flex-shrink-0 w-8 h-8 bg-amber-600/10 rounded-lg flex items-center justify-center text-amber-600 dark:text-amber-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M3 3v18h18" /><path d="m19 9-5 5-4-4-3 3" /></svg>
                                 </div>
                                 <div>
@@ -196,9 +199,6 @@ const LandingScreen: React.FC<ScreenProps> = ({ navigate }) => {
                         <p className="text-xs text-slate-700 dark:text-slate-400 mt-3 animate-fade-in" style={{ animationDelay: '1500ms' }}>
                             100% free to start. No credit card required.
                         </p>
-                    </div>
-                    <div className="relative mx-auto mt-8 w-72 h-72 md:w-96 md:h-96 animate-hero-avatar-float pointer-events-none" style={{ animationDelay: '500ms' }}>
-                        <AiAvatar state="idle" />
                     </div>
                 </div>
             </section>
@@ -274,7 +274,7 @@ const LandingScreen: React.FC<ScreenProps> = ({ navigate }) => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                         {testimonials.map((t, i) => (
                              <div key={i} className="glass-card shadow-glass-glow p-6 flex flex-col" style={{ animationDelay: `${i*150}ms`}}>
-                                <p className="text-3xl text-purple-400">★★★★★</p>
+                                <p className="text-3xl text-amber-400">★★★★★</p>
                                 <p className="flex-1 my-4 text-slate-800 dark:text-slate-200">"{t.quote}"</p>
                                 <div>
                                     <p className="font-bold">{t.name}</p>
@@ -289,7 +289,7 @@ const LandingScreen: React.FC<ScreenProps> = ({ navigate }) => {
             {/* Final CTA */}
             <AnimatedSection className="py-24 px-4 text-center">
                  <div className="relative max-w-3xl mx-auto">
-                    <div className="absolute inset-0.5 bg-gradient-to-br from-purple-500 to-cyan-400 rounded-full blur-xl opacity-50 -z-10"></div>
+                    <div className="absolute inset-0.5 bg-gradient-to-br from-amber-500 to-yellow-400 rounded-full blur-xl opacity-50 -z-10"></div>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-gradient mb-4">
                         Ready to Nail Your Next Interview?
                     </h2>

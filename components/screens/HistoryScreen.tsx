@@ -33,11 +33,11 @@ const HistoryScreen: React.FC<ScreenProps> = ({ navigate, theme }) => {
                                 <div className="flex items-center gap-4">
                                     <div className="text-right">
                                         <p className="text-xs text-slate-700 dark:text-slate-400">Score</p>
-                                        <p className="font-bold text-2xl text-purple-600 dark:text-purple-300">{item.score}%</p>
+                                        <p className="font-bold text-2xl text-amber-600 dark:text-amber-400">{item.score}%</p>
                                     </div>
                                     <button 
                                         onClick={() => navigate(Screen.Feedback, { interviewData: item })}
-                                        className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full whitespace-nowrap"
+                                        className="btn-secondary py-2 px-4 whitespace-nowrap"
                                     >
                                         View Report
                                     </button>

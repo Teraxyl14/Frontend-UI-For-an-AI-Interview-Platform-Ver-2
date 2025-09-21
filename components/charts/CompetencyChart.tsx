@@ -21,8 +21,7 @@ const CompetencyChart: React.FC<CompetencyChartProps> = ({ theme }) => {
         }
 
         const style = getComputedStyle(document.documentElement);
-        const purple = `hsl(${style.getPropertyValue('--brand-purple-raw')})`;
-        const cyan = `hsl(${style.getPropertyValue('--brand-cyan-raw')})`;
+        const primaryColor = `hsl(${style.getPropertyValue('--brand-primary-raw')})`;
 
         const gradient = ctx.createRadialGradient(
             canvasRef.current.width / 2,
@@ -32,9 +31,8 @@ const CompetencyChart: React.FC<CompetencyChartProps> = ({ theme }) => {
             canvasRef.current.height / 2,
             canvasRef.current.width / 2
         );
-        // FIX: Changed invalid color format from 'hsl(...)66' to 'hsla(..., 0.4)'
-        gradient.addColorStop(0, `hsla(${style.getPropertyValue('--brand-purple-raw')}, 0.4)`); // 40% opacity
-        gradient.addColorStop(1, `hsla(${style.getPropertyValue('--brand-cyan-raw')}, 0.4)`); // 40% opacity
+        gradient.addColorStop(0, `hsla(${style.getPropertyValue('--brand-primary-raw')}, 0.4)`);
+        gradient.addColorStop(1, `hsla(${style.getPropertyValue('--brand-secondary-raw')}, 0.4)`);
         
         const data = {
             labels: ['STAR Method', 'Technical Depth', 'Clarity', 'Leadership', 'Collaboration'],
@@ -42,11 +40,11 @@ const CompetencyChart: React.FC<CompetencyChartProps> = ({ theme }) => {
                 label: 'Your Competencies',
                 data: [88, 95, 78, 85, 92],
                 backgroundColor: gradient,
-                borderColor: purple,
-                pointBackgroundColor: purple,
+                borderColor: primaryColor,
+                pointBackgroundColor: primaryColor,
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: purple,
+                pointHoverBorderColor: primaryColor,
                 borderWidth: 2,
             }]
         };

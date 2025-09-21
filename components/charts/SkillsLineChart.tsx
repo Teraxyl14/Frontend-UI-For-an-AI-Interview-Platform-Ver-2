@@ -10,10 +10,6 @@ interface SkillsLineChartProps {
 const SkillsLineChart: React.FC<SkillsLineChartProps> = ({ theme, data }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const chartRef = useRef<any>(null);
-    const isDark = theme === 'dark';
-
-    const gridColor = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
-    const textColor = isDark ? '#cbd5e1' : '#475569'; // slate-300 or slate-600
 
     useEffect(() => {
         if (!canvasRef.current || !window.Chart || !data || data.length === 0) return;
@@ -25,9 +21,18 @@ const SkillsLineChart: React.FC<SkillsLineChartProps> = ({ theme, data }) => {
             chartRef.current.destroy();
         }
 
+        const isDark = theme === 'dark';
+        const gridColor = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+        const textColor = isDark ? '#cbd5e1' : '#475569'; // slate-300 or slate-600
+        
+        const style = getComputedStyle(document.documentElement);
+        const primaryColor = `hsl(${style.getPropertyValue('--brand-primary-raw')})`;
+        const secondaryColor = `hsl(${style.getPropertyValue('--brand-secondary-raw')})`;
+        const accentColor = 'hsl(240, 60%, 65%)'; // A vibrant, distinct blue for better contrast
+
         const labels = data.map(item => item.session);
         const skillNames = Object.keys(data[0].skills);
-        const colors = ['#a855f7', '#22d3ee', '#f472b6']; // purple-500, cyan-400, pink-400
+        const colors = [primaryColor, secondaryColor, accentColor];
 
         const datasets = skillNames.map((skill, index) => ({
             label: skill,
@@ -54,7 +59,11 @@ const SkillsLineChart: React.FC<SkillsLineChartProps> = ({ theme, data }) => {
                         position: 'top',
                         labels: {
                             color: textColor,
-                            font: { family: 'Inter, sans-serif' }
+                            font: { family: 'Inter, sans-serif' },
+                            usePointStyle: true,
+                            pointStyle: 'line',
+                            boxWidth: 20,
+                            padding: 20,
                         }
                     },
                     tooltip: {
@@ -93,7 +102,7 @@ const SkillsLineChart: React.FC<SkillsLineChartProps> = ({ theme, data }) => {
             }
         };
 
-    }, [data, theme, gridColor, textColor]);
+    }, [data, theme]);
 
     return <canvas ref={canvasRef} />;
 };

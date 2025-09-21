@@ -70,6 +70,7 @@ const App: React.FC = () => {
     const [interviewMode, setInterviewMode] = useState<InterviewMode>('practice');
     const [companyName, setCompanyName] = useState<string>('');
     const [aiState, setAiState] = useState<AiState>('idle');
+    const [navigationHistory, setNavigationHistory] = useState<Screen[]>([Screen.Landing]);
     
     // Sidebar state for non-immersive layouts
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -83,9 +84,32 @@ const App: React.FC = () => {
     }, [theme]);
 
     const navigate = (screen: Screen, params: any = {}) => {
+        const isPublicToPrivate = PUBLIC_SCREENS.includes(currentScreen) && !PUBLIC_SCREENS.includes(screen);
+        const isPrivateToPublic = !PUBLIC_SCREENS.includes(currentScreen) && PUBLIC_SCREENS.includes(screen);
+
+        if (isPublicToPrivate || isPrivateToPublic) {
+            setNavigationHistory([screen]);
+        } else {
+            if (navigationHistory[navigationHistory.length - 1] !== screen) {
+                setNavigationHistory(prev => [...prev, screen]);
+            }
+        }
+        
         setCurrentScreen(screen);
         setScreenParams(params);
         window.scrollTo(0, 0); // Scroll to top on navigation
+    };
+
+    const goBack = () => {
+        if (navigationHistory.length <= 1) return;
+
+        const newHistory = [...navigationHistory];
+        newHistory.pop();
+        const previousScreen = newHistory[newHistory.length - 1];
+
+        setNavigationHistory(newHistory);
+        setCurrentScreen(previousScreen);
+        setScreenParams({});
     };
 
     const CurrentScreenComponent = screenComponents[currentScreen];
@@ -99,6 +123,8 @@ const App: React.FC = () => {
     
     const screenProps = {
         navigate,
+        goBack,
+        navigationHistory,
         theme,
         setTheme,
         interviewMode,

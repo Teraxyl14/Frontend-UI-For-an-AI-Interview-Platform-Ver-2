@@ -8,8 +8,8 @@ const LoginScreen: React.FC<ScreenProps> = ({ navigate }) => {
     // For this demo, we'll just navigate to the main app.
     const handleLogin = () => {
         // Here you would typically set an auth state
-        // For now, we go to PracticeCenter for returning users.
-        navigate(Screen.PracticeCenter);
+        // For now, we go to Dashboard for returning users.
+        navigate(Screen.Dashboard);
     };
 
     return (
@@ -38,7 +38,7 @@ const LoginScreen: React.FC<ScreenProps> = ({ navigate }) => {
                 <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); handleLogin(); }}>
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium mb-2">Email Address</label>
-                        <input id="email" type="email" defaultValue="alex.doe@example.com" className="block w-full rounded-md border-0 bg-slate-500/10 py-2.5 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-purple-500 transition" />
+                        <input id="email" type="email" defaultValue="alex.doe@example.com" className="block w-full rounded-md border-0 bg-slate-500/10 py-2.5 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-amber-500 transition" />
                     </div>
                     <div>
                         <label htmlFor="password"className="block text-sm font-medium mb-2">Password</label>
@@ -47,7 +47,7 @@ const LoginScreen: React.FC<ScreenProps> = ({ navigate }) => {
                                 id="password" 
                                 type={showPassword ? 'text' : 'password'}
                                 defaultValue="password" 
-                                className="block w-full rounded-md border-0 bg-slate-500/10 py-2.5 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-purple-500 transition" 
+                                className="block w-full rounded-md border-0 bg-slate-500/10 py-2.5 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-amber-500 transition" 
                             />
                             <button
                                 type="button"
@@ -63,7 +63,7 @@ const LoginScreen: React.FC<ScreenProps> = ({ navigate }) => {
                         </div>
                     </div>
                      <div className="flex justify-end">
-                        <a href="#" className="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline">Forgot password?</a>
+                        <a href="#" className="text-sm font-medium text-amber-600 dark:text-amber-400 hover:underline">Forgot password?</a>
                     </div>
                     <button
                         type="submit"
@@ -73,7 +73,7 @@ const LoginScreen: React.FC<ScreenProps> = ({ navigate }) => {
                     </button>
                 </form>
                 <p className="text-center text-sm text-slate-700 dark:text-slate-400 mt-6">
-                    Don't have an account? <button onClick={() => navigate(Screen.SignUp)} className="font-semibold text-purple-600 dark:text-purple-400 hover:text-purple-500 dark:hover:text-purple-300">Sign up</button>
+                    Don't have an account? <button onClick={() => navigate(Screen.SignUp)} className="font-semibold text-amber-600 dark:text-amber-400 hover:text-amber-500 dark:hover:text-amber-300">Sign up</button>
                 </p>
             </div>
         </div>

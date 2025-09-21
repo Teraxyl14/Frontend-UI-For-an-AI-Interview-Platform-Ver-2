@@ -16,8 +16,6 @@ const SignUpScreen: React.FC<ScreenProps> = ({ navigate }) => {
     const [passwordStrength, setPasswordStrength] = useState<PasswordStrength>({ score: 0, label: '', color: '', width: '0%' });
     const [isFormValid, setIsFormValid] = useState(false);
     
-    // In a real app, this would be a full signup form.
-    // For this demo, we'll just navigate to onboarding.
     const handleSignUp = () => {
         navigate(Screen.Onboarding);
     };
@@ -74,15 +72,15 @@ const SignUpScreen: React.FC<ScreenProps> = ({ navigate }) => {
                 <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); handleSignUp(); }}>
                     <div>
                         <label htmlFor="name" className="block text-sm font-medium mb-2">Full Name</label>
-                        <input id="name" type="text" placeholder="Alex Doe" value={name} onChange={(e) => setName(e.target.value)} className="block w-full rounded-md border-0 bg-slate-500/10 py-2.5 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-purple-500 transition" />
+                        <input id="name" type="text" placeholder="Alex Doe" value={name} onChange={(e) => setName(e.target.value)} className="block w-full rounded-md border-0 bg-slate-500/10 py-2.5 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-amber-500 transition" />
                     </div>
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium mb-2">Email Address</label>
-                        <input id="email" type="email" placeholder="alex.doe@example.com" value={email} onChange={(e) => setEmail(e.target.value)} className="block w-full rounded-md border-0 bg-slate-500/10 py-2.5 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-purple-500 transition" />
+                        <input id="email" type="email" placeholder="alex.doe@example.com" value={email} onChange={(e) => setEmail(e.target.value)} className="block w-full rounded-md border-0 bg-slate-500/10 py-2.5 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-amber-500 transition" />
                     </div>
                     <div>
                         <label htmlFor="password"className="block text-sm font-medium mb-2">Password</label>
-                        <input id="password" type="password" placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} className="block w-full rounded-md border-0 bg-slate-500/10 py-2.5 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-purple-500 transition" />
+                        <input id="password" type="password" placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} className="block w-full rounded-md border-0 bg-slate-500/10 py-2.5 px-3 shadow-sm ring-1 ring-inset ring-slate-500/20 focus:ring-2 focus:ring-inset focus:ring-amber-500 transition" />
                         {password && (
                             <div className="mt-2 flex items-center gap-2">
                                 <div className="w-full h-1.5 bg-slate-500/20 rounded-full overflow-hidden">
@@ -95,10 +93,10 @@ const SignUpScreen: React.FC<ScreenProps> = ({ navigate }) => {
 
                     <div className="flex items-start">
                         <div className="flex items-center h-5">
-                            <input id="terms" type="checkbox" checked={agreedToTerms} onChange={(e) => setAgreedToTerms(e.target.checked)} className="focus:ring-purple-500 h-4 w-4 text-purple-600 border-slate-500/50 rounded bg-transparent" />
+                            <input id="terms" type="checkbox" checked={agreedToTerms} onChange={(e) => setAgreedToTerms(e.target.checked)} className="focus:ring-amber-500 h-4 w-4 text-amber-600 border-slate-500/50 rounded bg-transparent" />
                         </div>
                         <div className="ml-3 text-sm">
-                            <label htmlFor="terms" className="text-slate-700 dark:text-slate-400">I agree to the <a href="#" className="font-medium text-purple-600 dark:text-purple-400 hover:underline">Terms of Service</a></label>
+                            <label htmlFor="terms" className="text-slate-700 dark:text-slate-400">I agree to the <a href="#" className="font-medium text-amber-600 dark:text-amber-400 hover:underline">Terms of Service</a></label>
                         </div>
                     </div>
                     
@@ -111,7 +109,7 @@ const SignUpScreen: React.FC<ScreenProps> = ({ navigate }) => {
                     </button>
                 </form>
                 <p className="text-center text-sm text-slate-700 dark:text-slate-400 mt-6">
-                    Already have an account? <button onClick={() => navigate(Screen.Login)} className="font-semibold text-purple-600 dark:text-purple-400 hover:text-purple-500 dark:hover:text-purple-300">Log in</button>
+                    Already have an account? <button onClick={() => navigate(Screen.Login)} className="font-semibold text-amber-600 dark:text-amber-400 hover:text-amber-500 dark:hover:text-amber-300">Log in</button>
                 </p>
             </div>
         </div>
